@@ -1,0 +1,47 @@
+
+<head>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+</head>
+<h1>{{ .Title}} </h1>
+
+<h1>{{ .News}}</h1>
+
+
+{{ range $k, $value:= .Arr }}
+	<p>"hellwo"</p>
+	<p>{{$k}}</p>
+	<p>{{$value}}</p> 
+{{end}}
+
+{{ range $k := .Arr }}
+	<p>"hellwo2"</p>
+	<p>{{$k}}</p>
+{{end}}
+
+{{range $key, $value := .News}}
+	<p>"test"</p>
+{{end}}
+
+<table id="fancytable" class="display" >
+	<thead>
+		<th>Title</th>
+		<th>Keywords</th>
+	</thead>
+	<tbody>
+			{{range $key, $value := .News}}
+				<tr>
+					<td>{{$key}}</td>
+					<td>{{$value}}</td>
+				</tr>
+			{{end}}
+	</tbody>
+</table>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#fancytable').DataTable();
+	});
+</script>
+
